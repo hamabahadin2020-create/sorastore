@@ -152,6 +152,9 @@ const mobileMenuCartBtn = $("mobileMenuCartBtn");
 const mobileMenuOrdersBtn = $("mobileMenuOrdersBtn");
 const mobileMenuAccountBtn = $("mobileMenuAccountBtn");
 const mobileMenuMessagesBtn = $("mobileMenuMessagesBtn");
+const mobileCartBtn = $("mobileCartBtn");
+const mobileCartCount = $("mobileCartCount");
+const mobileMenuCartCount = $("mobileMenuCartCount");
 const currencyPill = $("currencyPill");
 
 // Top / sidebar buttons
@@ -822,6 +825,7 @@ function applyTranslations() {
   setText('trustRefundText', lang.trustRefundText);
   setText('mobileMenuSubtitle', lang.mobileMenuSubtitle);
   setText('currencyPill', 'IQD');
+  setText('mobileCurrencyPill', 'IQD');
   setText('linkRequestCartCount', `${state.linkRequestCart.length} ${state.linkRequestCart.length === 1 ? 'item' : 'items'}`);
   setPlaceholder('linkProductUrlInput', lang.requestUrlPlaceholder);
   setPlaceholder('linkProductNoteInput', lang.requestNotePlaceholder);
@@ -1626,6 +1630,7 @@ function deleteCatalog(catalogId) {
 }
 
 function openPanel(panel) {
+  closeMobileMenu();
   closeAllPanels();
   panel?.classList.add("open");
   overlay?.classList.add("show");
@@ -3257,6 +3262,125 @@ function toggleAccountBlock(email) {
   refreshAll();
 }
 
+
+function setLanguage(lang) {
+  state.language = ["en", "ar", "ku"].includes(lang) ? lang : "en";
+  const html = document.documentElement;
+  html.lang = state.language === "ku" ? "ku" : state.language;
+  html.dir = state.language === "ar" || state.language === "ku" ? "rtl" : "ltr";
+
+  const translations = {
+    en: {
+      search: "Search products, brand, type, country...",
+      messages: "Messages",
+      signin: "Sign in",
+      cart: "Cart",
+      home: "Home",
+      products: "Products",
+      sourcing: "Sourcing Requests",
+      trust_label: "Why customers choose us",
+      trust_title: "A simple and trusted way to order from China to Iraq and Kurdistan.",
+      trust_desc: "Clear steps, direct support, and transparent delivery updates for every order.",
+      trust_how_title: "How ordering works",
+      trust_how_text: "Browse products or send a sourcing link, confirm your order, and we handle shipping to Iraq and Kurdistan.",
+      trust_delivery_title: "Delivery time",
+      trust_delivery_text: "Air shipping is faster. Sea shipping is better for lower cost and larger orders.",
+      trust_why_title: "Why trust us",
+      trust_why_text: "We review each request, confirm product details, and keep you updated through messages and order tracking.",
+      trust_payment_title: "Payment methods",
+      trust_payment_text: "All prices are shown in IQD. Payment details can be confirmed with the store before processing.",
+      trust_refund_title: "Return and refund policy",
+      trust_refund_text: "If there is a confirmed issue, our team can review cancellation, return, or refund requests from your account panel."
+    },
+    ar: {
+      search: "ابحث عن المنتجات أو العلامة أو النوع أو البلد...",
+      messages: "الرسائل",
+      signin: "تسجيل الدخول",
+      cart: "السلة",
+      home: "الرئيسية",
+      products: "المنتجات",
+      sourcing: "طلبات التوريد",
+      trust_label: "لماذا يختارنا العملاء",
+      trust_title: "طريقة بسيطة وموثوقة للطلب من الصين إلى العراق وكردستان.",
+      trust_desc: "خطوات واضحة ودعم مباشر وتحديثات شفافة لكل طلب.",
+      trust_how_title: "كيف يتم الطلب",
+      trust_how_text: "تصفح المنتجات أو أرسل رابط المنتج، ثم أكد طلبك ونحن نهتم بالشحن إلى العراق وكردستان.",
+      trust_delivery_title: "مدة التوصيل",
+      trust_delivery_text: "الشحن الجوي أسرع، أما الشحن البحري فهو أفضل للتكلفة الأقل والطلبات الكبيرة.",
+      trust_why_title: "لماذا تثق بنا",
+      trust_why_text: "نراجع كل طلب ونؤكد تفاصيل المنتج ونبقيك على اطلاع عبر الرسائل وتتبع الطلب.",
+      trust_payment_title: "طرق الدفع",
+      trust_payment_text: "جميع الأسعار معروضة بالدينار العراقي ويمكن تأكيد تفاصيل الدفع مع المتجر قبل المعالجة.",
+      trust_refund_title: "سياسة الإرجاع والاسترجاع",
+      trust_refund_text: "إذا كانت هناك مشكلة مؤكدة في الطلب، يمكن لفريقنا مراجعة طلبات الإلغاء أو الإرجاع أو الاسترجاع من لوحة حسابك."
+    },
+    ku: {
+      search: "گەڕان بۆ بەرهەم، براند، جۆر، وڵات...",
+      messages: "پەیامەکان",
+      signin: "چوونەژوورەوە",
+      cart: "سەبەتە",
+      home: "سەرەکی",
+      products: "بەرهەمەکان",
+      sourcing: "داواکاری دابینکردن",
+      trust_label: "بۆچی کڕیارەکان ئێمە هەڵدەبژێرن",
+      trust_title: "ڕێگایەکی سادە و متمانەپێکراو بۆ داواکردن لە چین بۆ عێراق و کوردستان.",
+      trust_desc: "هەنگاوە ڕوونەکان، پشتگیری ڕاستەوخۆ، و نوێکارییە شفافەکان بۆ هەر داواکارییەک.",
+      trust_how_title: "چۆنیەتی داواکردن",
+      trust_how_text: "بەرهەمەکان ببینە یان لینکی دابینکردن بنێرە، داواکارییەکەت پشتڕاست بکەرەوە و ئێمە گواستنەوەکە بەڕێوە دەبەین بۆ عێراق و کوردستان.",
+      trust_delivery_title: "ماوەی گەیاندن",
+      trust_delivery_text: "گواستنەوەی ئاسمانی خێراترە. گواستنەوەی دەریایی بۆ نرخێکی کەمتر و داواکارییە گەورەکان باشترە.",
+      trust_why_title: "بۆچی متمانەمان پێ بکەیت",
+      trust_why_text: "هەر داواکارییەک پشکنین دەکەین، وردەکارییەکانی بەرهەم پشتڕاست دەکەینەوە، و بە پەیام و شوێنکەوتنی داواکاری ئاگادارت دەکەین.",
+      trust_payment_title: "شێوازەکانی پارەدان",
+      trust_payment_text: "هەموو نرخەکان بە دیناری عێراقی پیشان دەدرێن. وردەکارییەکانی پارەدان لەگەڵ فرۆشگا پێش جێبەجێکردن پشتڕاست دەکرێنەوە.",
+      trust_refund_title: "سیاسەتی گەڕاندنەوە و پارەدانەوە",
+      trust_refund_text: "ئەگەر کێشەیەکی پشتڕاستکراو هەبێت، تیمەکەمان دەتوانێت داواکاری هەڵوەشاندنەوە، گەڕاندنەوە یان پارەدانەوە لە پانێڵی هەژمارەکەتدا پشکنێت."
+    }
+  };
+
+  const t = translations[state.language];
+  if (searchInput) searchInput.placeholder = t.search;
+  document.querySelectorAll('[data-i18n]').forEach((node) => {
+    const key = node.dataset.i18n;
+    if (t[key]) node.textContent = t[key];
+  });
+  document.querySelectorAll('[data-lang]').forEach((btn) => {
+    btn.classList.toggle('active', btn.dataset.lang === state.language);
+  });
+  if (openChatPanelBtn) openChatPanelBtn.textContent = t.messages;
+  if (mobileMenuMessagesBtn) mobileMenuMessagesBtn.textContent = t.messages;
+  if (signInBtn && !state.signedInUser) signInBtn.textContent = t.signin;
+  if (cartBtn) {
+    const cartLabelNode = cartBtn.childNodes[0];
+    if (cartLabelNode) cartLabelNode.textContent = `${t.cart} `;
+  }
+  if (mobileMenuCartBtn) mobileMenuCartBtn.childNodes[0].textContent = `${t.cart} `;
+  document.querySelectorAll('.mobile-menu-link').forEach((link) => {
+    const href = link.getAttribute('href');
+    if (href === '#home') link.textContent = t.home;
+    if (href === '#products') link.textContent = t.products;
+    if (href === '#linkRequestsSection') link.textContent = t.sourcing;
+  });
+}
+
+function openMobileMenu() {
+  if (!mobileMenuPanel) return;
+  mobileMenuPanel.classList.add('open');
+  mobileMenuPanel.setAttribute('aria-hidden', 'false');
+  overlay?.classList.add('show');
+  document.body.classList.add('mobile-menu-open');
+}
+
+function closeMobileMenu() {
+  if (!mobileMenuPanel) return;
+  mobileMenuPanel.classList.remove('open');
+  mobileMenuPanel.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('mobile-menu-open');
+  const anyPanelOpen = [cartPanel, ordersPanel, chatPanel, accountPanel, dashboardPanel].some((panel) => panel?.classList.contains('open'));
+  if (!authModal?.classList.contains('hidden-box') || !imageZoomModal?.classList.contains('hidden-box') || !productDetailsModal?.classList.contains('hidden-box') || anyPanelOpen) return;
+  overlay?.classList.remove('show');
+}
+
 function logoutUser() {
   state.signedInUser = null;
   state.activeChatThreadId = null;
@@ -3291,6 +3415,10 @@ function refreshAll() {
   renderDashboardChats();
   renderDashboardVisibility();
   setDashboardTab(state.dashboardTab);
+  if (mobileCartCount) mobileCartCount.textContent = String(state.cart.reduce((sum, item) => sum + item.quantity, 0));
+  if (mobileMenuCartCount) mobileMenuCartCount.textContent = String(state.cart.reduce((sum, item) => sum + item.quantity, 0));
+  if (currencyPill) currencyPill.textContent = "IQD";
+  setLanguage(state.language);
 }
 
 searchInput?.addEventListener("input", (event) => {
@@ -3341,6 +3469,33 @@ document.querySelectorAll('.mobile-menu-link').forEach((link) => {
 cartBtn?.addEventListener("click", () => openPanel(cartPanel));
 openCartPanelBtn?.addEventListener("click", () => openPanel(cartPanel));
 sidebarOpenCartBtn?.addEventListener("click", () => openPanel(cartPanel));
+mobileCartBtn?.addEventListener("click", () => openPanel(cartPanel));
+mobileMenuCartBtn?.addEventListener("click", () => {
+  closeMobileMenu();
+  openPanel(cartPanel);
+});
+mobileMenuBtn?.addEventListener("click", openMobileMenu);
+closeMobileMenuBtn?.addEventListener("click", closeMobileMenu);
+mobileMenuMessagesBtn?.addEventListener("click", () => {
+  closeMobileMenu();
+  openChatPanelForCurrentUser();
+});
+mobileMenuOrdersBtn?.addEventListener("click", () => {
+  closeMobileMenu();
+  renderOrders();
+  openPanel(ordersPanel);
+});
+mobileMenuAccountBtn?.addEventListener("click", () => {
+  closeMobileMenu();
+  const account = getCurrentAccount();
+  if (account) markNotificationsRead(account.email);
+  renderAccountSection();
+  renderNotificationBell();
+  openPanel(accountPanel);
+});
+document.querySelectorAll('[data-lang]').forEach((button) => {
+  button.addEventListener('click', () => setLanguage(button.dataset.lang || 'en'));
+});
 
 openOrdersPanelBtn?.addEventListener("click", () => {
   renderOrders();
