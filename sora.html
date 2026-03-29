@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sora Store | China to Iraq & Kurdistan</title>
+  <meta name="description" content="Order products from China with trusted delivery to Iraq and Kurdistan. Browse collections, request custom items, and manage orders with Sora." />
+  <meta name="theme-color" content="#7c3aed" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="sora.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+      <div class="logo-wrap">
+        <div class="logo-mark">S</div>
+        <div>
+          <h1 class="logo-text">Sora</h1>
+          <p class="logo-sub">Smart commerce for Iraq & Kurdistan</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link active" href="#home">Home</a>
+        <a class="nav-link" href="#linkRequestsSection">Sourcing Requests</a>
+        <a class="nav-link" href="#products">Products</a>
+        <button id="sidebarOpenCartBtn" class="nav-button" type="button">Cart</button>
+      </nav>
+
+      <div class="sidebar-quick-actions">
+        <button id="openOrdersPanelBtn" class="nav-button" type="button">Orders</button>
+        <button id="sidebarOpenChatBtn" class="nav-button" type="button">Messages</button>
+        <button id="openAccountPanelBtn" class="nav-button" type="button">Account</button>
+        <button id="openDashboardPanelBtn" class="nav-button hidden-box" type="button">Dashboard</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="mobile-top-controls">
+          <button id="mobileMenuBtn" class="icon-btn mobile-menu-btn" type="button" aria-label="Open menu">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 7H20M4 12H20M4 17H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+        <div class="search-box">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none">
+            <path d="M21 21L15.8 15.8M17 10.5C17 14.0899 14.0899 17 10.5 17C6.91015 17 4 14.0899 4 10.5C4 6.91015 6.91015 4 10.5 4C14.0899 4 17 6.91015 17 10.5Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <input id="searchInput" type="text" placeholder="Search products, brand, type, country..." />
+        </div>
+
+
+        <div class="topbar-actions">
+          <div class="language-switch" aria-label="Language switch">
+            <button class="lang-btn active" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="ar">AR</button>
+            <button class="lang-btn" type="button" data-lang="ku">KU</button>
+          </div>
+          <div class="currency-pill" id="currencyPill">IQD</div>
+          <button id="notificationBellBtn" class="icon-btn notification-bell-btn" type="button" aria-label="Open notifications">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M15 17H9M18 17H6C6.8 16.2 7.4 15.2 7.4 14V10.8C7.4 8.3 9 6.2 11.2 5.5V4.9C11.2 4 11.9 3.3 12.8 3.3C13.7 3.3 14.4 4 14.4 4.9V5.4C16.7 6.1 18.4 8.3 18.4 10.8V14C18.4 15.2 19 16.2 19.8 17H18ZM14.8 17C14.8 18.5 13.6 19.7 12.1 19.7C10.6 19.7 9.4 18.5 9.4 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span id="notificationBellCount" class="notification-badge hidden-box">0</span>
+          </button>
+          <button id="openChatPanelBtn" class="secondary-btn" type="button">Messages</button>
+          <button id="signInBtn" class="secondary-btn" type="button">Sign in</button>
+          <button id="cartBtn" class="primary-btn" type="button">
+            Cart
+            <span id="cartCount" class="cart-count">0</span>
+          </button>
+        </div>
+      </header>
+
+      <section class="hero" id="home">
+        <div class="hero-content">
+          <span class="hero-tag" id="heroTagText">Professional storefront control</span>
+          <h2 id="heroTitleText">Centralized control for products, team access, customer records, and homepage content.</h2>
+          <p id="heroDescriptionText">
+            Customers can create accounts, place orders, and review order history. Authorized team members can manage products, customer records, reports, monthly accounts, and homepage content from the dashboard.
+          </p>
+      
+          <div class="hero-home-note">
+            <span>Trusted delivery inside Iraq with clean catalog browsing and account tools.</span>
+          </div>
+
+        </div>
+      
+        <div class="hero-visual" id="heroVisualBox">
+          <img id="heroManagedImage" class="hero-managed-image hidden-image" alt="Hero visual" />
+          <div id="heroVisualFallback" class="hero-visual-fallback"></div>
+      
+          <div class="floating-card card-a">
+            <span id="heroCard1Label">Access</span>
+            <strong id="heroCard1Title">Super Admin Control</strong>
+          </div>
+      
+          <div class="floating-card card-b">
+            <span id="heroCard2Label">Accounts</span>
+            <strong id="heroCard2Title">Monthly Growth</strong>
+          </div>
+      
+          <div class="floating-card card-c">
+            <span id="heroCard3Label">Products</span>
+            <strong id="heroCard3Title">Edit and Delete</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-section" id="trustSection">
+        <div class="trust-section-head">
+          <div>
+            <p class="section-label" id="trustLabelText">Why customers choose us</p>
+            <h3 id="trustTitleText">A simple and trusted way to order from China to Iraq and Kurdistan.</h3>
+            <p class="results-text" id="trustDescriptionText">Clear steps, direct support, and transparent delivery updates for every order.</p>
+          </div>
+        </div>
+
+        <div class="trust-grid">
+          <article class="trust-card">
+            <div class="trust-icon">1</div>
+            <h4 id="trustHowTitle">How ordering works</h4>
+            <p id="trustHowText">Browse products or send a sourcing link, confirm your order, and we handle shipping to Iraq and Kurdistan.</p>
+          </article>
+          <article class="trust-card">
+            <div class="trust-icon">2</div>
+            <h4 id="trustDeliveryTitle">Delivery time</h4>
+            <p id="trustDeliveryText">Air orders usually arrive faster, while sea shipping is better for lower-cost delivery and larger orders.</p>
+          </article>
+          <article class="trust-card">
+            <div class="trust-icon">3</div>
+            <h4 id="trustWhyTitle">Why trust us</h4>
+            <p id="trustWhyText">We review each request, confirm product details, and keep customers updated through order status and direct messages.</p>
+          </article>
+          <article class="trust-card">
+            <div class="trust-icon">4</div>
+            <h4 id="trustPaymentTitle">Payment methods</h4>
+            <p id="trustPaymentText">Payment is handled in IQD. You can confirm payment details with the store before final processing.</p>
+          </article>
+          <article class="trust-card trust-card-wide">
+            <div class="trust-icon">5</div>
+            <h4 id="trustRefundTitle">Return and refund policy</h4>
+            <p id="trustRefundText">If there is a confirmed issue with your order, our team can review cancellation, return, or refund requests from your account panel.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="link-request-section" id="linkRequestsSection">
+        <div class="link-request-card">
+          <div class="products-header">
+            <div>
+              <p class="section-label">Sourcing requests</p>
+              <h3>Request an item</h3>
+              <p class="results-text">Paste the product link and add any relevant details. Our team will review the request and return the final price.</p>
+            </div>
+          </div>
+
+          <form id="linkRequestForm" class="admin-form">
+            <div class="form-grid">
+              <input id="linkProductUrlInput" type="url" placeholder="Paste product link" />
+            </div>
+            <textarea id="linkProductNoteInput" rows="3" placeholder="Add any important details such as size, color, or specifications"></textarea>
+            <div class="inline-actions">
+              <button id="addLinkRequestItemBtn" class="secondary-btn" type="submit">Add Item</button>
+              <button id="submitLinkRequestBtn" class="primary-btn" type="button">Submit</button>
+            </div>
+          </form>
+
+          <div class="link-request-cart-box">
+            <p class="helper-note">You can add several links first, then submit them together as one sourcing request.</p>
+            <div class="card-head card-head-stack">
+              <div>
+                <h4>Request Overview</h4>
+                <p class="order-meta">Combine multiple product links into a single request before submission.</p>
+              </div>
+              <div class="results-pill" id="linkRequestCartCount">0 items</div>
+            </div>
+            <div id="linkRequestCartList" class="dashboard-list"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="catalog-showcase" id="products">
+        <div class="catalog-showcase-head">
+          <div>
+            <p class="section-label">Collections</p>
+            <h3>Shop by catalog</h3>
+            <p class="results-text">Choose a catalog to quickly browse the products you want.</p>
+          </div>
+          <button id="clearFiltersBtn" class="ghost-btn catalog-clear-btn" type="button">Clear filters</button>
+        </div>
+        <div id="catalogFilters" class="catalog-filters"></div>
+      </section>
+
+      <section class="products-header">
+        <div>
+          <p class="section-label">Catalog</p>
+          <h3>Products</h3>
+          <p id="resultsText" class="results-text">Showing all products.</p>
+        </div>
+        <div class="results-pill" id="resultsCount">0 items</div>
+      </section>
+
+      <section id="productGrid" class="product-grid"></section>
+
+      <footer class="site-footer">
+        <div>
+          <strong>Sora</strong>
+          <p>Frontend storefront for importing products from China to Iraq and Kurdistan.</p>
+        </div>
+        <div class="site-footer-links">
+          <a href="#home">Home</a>
+          <a href="#products">Products</a>
+          <a href="#linkRequestsSection">Sourcing Requests</a>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <aside id="mobileMenuPanel" class="mobile-menu-panel">
+    <div class="mobile-menu-head">
+      <div>
+        <strong>Sora</strong>
+        <p id="mobileMenuSubtitle">China to Iraq & Kurdistan</p>
+      </div>
+      <button id="closeMobileMenuBtn" class="ghost-btn" type="button">Close</button>
+    </div>
+
+    <nav class="mobile-menu-nav">
+      <a href="#home" class="mobile-menu-link">Home</a>
+      <a href="#trustSection" class="mobile-menu-link">Why us</a>
+      <a href="#linkRequestsSection" class="mobile-menu-link">Sourcing Requests</a>
+      <a href="#products" class="mobile-menu-link">Products</a>
+    </nav>
+
+    <div class="mobile-menu-actions">
+      <button id="mobileMenuCartBtn" class="secondary-btn" type="button">Cart</button>
+      <button id="mobileMenuOrdersBtn" class="secondary-btn" type="button">Orders</button>
+      <button id="mobileMenuAccountBtn" class="secondary-btn" type="button">Account</button>
+      <button id="mobileMenuMessagesBtn" class="secondary-btn" type="button">Messages</button>
+    </div>
+  </aside>
+
+  <template id="productCardTemplate">
+    <article class="product-card">
+      <div class="product-image-wrap">
+        <button type="button" class="wishlist-icon-btn" aria-label="Add to wishlist" title="Add to wishlist">
+          <span class="wishlist-heart">&#9825;</span>
+        </button>
+        <div class="fallback-image"></div>
+        <img class="product-real-image hidden-image" alt="Product image" />
+        <button type="button" class="slider-btn slider-prev">&#10094;</button>
+        <button type="button" class="slider-btn slider-next">&#10095;</button>
+        <div class="slider-dots"></div>
+        <div class="product-badges">
+          <span class="country-badge">China</span>
+          <span class="gender-badge"></span>
+        </div>
+      </div>
+
+      <div class="product-card-body">
+        <p class="category-text"></p>
+        <h4 class="product-title"></h4>
+        <p class="product-description"></p>
+
+        <div class="product-meta-row">
+          <span class="product-brand"></span>
+          <span class="product-type"></span>
+        </div>
+
+        <div class="product-meta-row">
+          <span class="product-material"></span>
+          <span class="product-stock"></span>
+        </div>
+
+        <div class="product-choice-group">
+          <div class="choice-head">
+            <strong>Colors</strong>
+            <span class="product-color-label"></span>
+          </div>
+          <div class="product-color-options"></div>
+        </div>
+
+        <div class="product-choice-group">
+          <div class="choice-head">
+            <strong>Sizes</strong>
+            <span class="product-size-label"></span>
+          </div>
+          <div class="product-size-options"></div>
+        </div>
+
+        <div class="price-row">
+          <div>
+            <strong class="product-price"></strong>
+            <span class="product-old-price"></span>
+          </div>
+        </div>
+
+        <div class="product-choice-group shipping-method-group">
+          <div class="choice-head">
+            <strong>Shipping</strong>
+            <span class="product-shipping-label"></span>
+          </div>
+          <div class="product-shipping-options"></div>
+          <p class="shipping-method-note"></p>
+        </div>
+
+        <div class="card-actions">
+          <button class="secondary-btn add-to-cart-btn" type="button">Add to cart</button>
+          <button class="secondary-btn details-btn" type="button">Details</button>
+          <button class="secondary-btn chat-product-btn" type="button">Product Inquiry</button>
+          <button class="primary-btn buy-now-btn" type="button">Buy now</button>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <aside id="cartPanel" class="panel">
+    <div class="panel-head">
+      <div>
+        <p class="section-label">Shopping cart</p>
+        <h3>Your cart</h3>
+      </div>
+      <button class="ghost-btn" data-close-panel type="button">Close</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-footer">
+      <div class="subtotal-row">
+        <span>Subtotal</span>
+        <strong id="cartSubtotal">$0</strong>
+      </div>
+      <button id="checkoutBtn" class="checkout-btn" type="button">Checkout</button>
+    </div>
+  </aside>
+
+  <aside id="ordersPanel" class="panel">
+    <div class="panel-head">
+      <div>
+        <p class="section-label">Orders</p>
+        <h3>Orders History</h3>
+      </div>
+      <button class="ghost-btn" data-close-panel type="button">Close</button>
+    </div>
+    <div id="ordersList" class="orders-list"></div>
+  </aside>
+
+  <aside id="accountPanel" class="panel">
+    <div class="panel-head">
+      <div>
+        <p class="section-label">Account</p>
+        <h3>Your Account</h3>
+      </div>
+      <button class="ghost-btn" data-close-panel type="button">Close</button>
+    </div>
+
+    <div class="account-card">
+      <h4>Profile</h4>
+      <p id="accountInfoText" class="order-meta">Not signed in.</p>
+      <div id="accountActionButtons" class="inline-actions"></div>
+    </div>
+
+    <div id="shippingCard" class="account-card hidden-box">
+      <div class="card-head card-head-stack">
+        <div>
+          <h4>Shipping Address</h4>
+          <p class="order-meta">Choose the delivery type, select the country, and save the full address before checkout.</p>
+        </div>
+        <div class="shipping-type-switch">
+          <button id="apartmentAddressBtn" class="address-type-btn" data-address-type="apartment" type="button">Apartment full address</button>
+          <button id="houseAddressBtn" class="address-type-btn" data-address-type="house" type="button">House full address</button>
+        </div>
+      </div>
+
+      <form id="shippingAddressForm" class="admin-form">
+        <div class="shipping-form-shell">
+          <div class="form-grid">
+            <div class="form-field-stack form-field-full">
+              <label class="shipping-field-label" for="shippingCountrySelect">Country</label>
+              <select id="shippingCountrySelect">
+                <option value="Iraq">Iraq</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="houseAddressFields" class="shipping-address-group hidden-field">
+            <div class="address-group-head">
+              <h5>House full address</h5>
+              <p class="order-meta">Only house fields are shown here.</p>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-field-stack">
+                <label class="shipping-field-label" for="houseNumberInput">House number</label>
+                <input id="houseNumberInput" type="text" placeholder="House number" />
+              </div>
+              <div class="form-field-stack">
+                <label class="shipping-field-label" for="houseFloorInput">Floor (optional)</label>
+                <input id="houseFloorInput" type="text" placeholder="Floor (optional)" />
+              </div>
+              <div class="form-field-stack">
+                <label class="shipping-field-label" for="houseStreetInput">Street</label>
+                <input id="houseStreetInput" type="text" placeholder="Street" />
+              </div>
+              <div class="form-field-stack">
+                <label class="shipping-field-label" for="housePhoneInput">Phone number</label>
+                <input id="housePhoneInput" type="text" placeholder="Phone number" readonly />
+                <span class="field-note">Filled automatically from your account phone number.</span>
+              </div>
+              <div class="form-field-stack form-field-full">
+                <label class="shipping-field-label" for="houseAdditionalInput">Additional (optional)</label>
+                <input id="houseAdditionalInput" type="text" placeholder="Additional details (optional)" />
+              </div>
+              <div class="form-field-stack form-field-full">
+                <label class="shipping-field-label" for="houseLabelInput">Address label (optional)</label>
+                <input id="houseLabelInput" type="text" placeholder="Address label (optional)" />
+              </div>
+            </div>
+          </div>
+
+          <div id="apartmentAddressFields" class="shipping-address-group hidden-field">
+            <div class="address-group-head">
+              <h5>Apartment full address</h5>
+              <p class="order-meta">Only apartment fields are shown here.</p>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-field-stack">
+                <label class="shipping-field-label" for="apartmentBuildingNameInput">Building name</label>
+                <input id="apartmentBuildingNameInput" type="text" placeholder="Building name" />
+              </div>
+              <div class="form-field-stack">
+                <label class="shipping-field-label" for="apartmentNumberInput">Apt. no.</label>
+                <input id="apartmentNumberInput" type="text" placeholder="Apt. no." />
+              </div>
+              <div class="form-field-stack">
+                <label class="shipping-field-label" for="apartmentFloorInput">Floor</label>
+                <input id="apartmentFloorInput" type="text" placeholder="Floor" />
+              </div>
+              <div class="form-field-stack">
+                <label class="shipping-field-label" for="apartmentStreetInput">Street</label>
+                <input id="apartmentStreetInput" type="text" placeholder="Street" />
+              </div>
+              <div class="form-field-stack form-field-full">
+                <label class="shipping-field-label" for="apartmentAdditionalInput">Additional (optional)</label>
+                <input id="apartmentAdditionalInput" type="text" placeholder="Additional details (optional)" />
+              </div>
+              <div class="form-field-stack form-field-full">
+                <label class="shipping-field-label" for="apartmentLabelInput">Address label (optional)</label>
+                <input id="apartmentLabelInput" type="text" placeholder="Address label (optional)" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="inline-actions">
+          <button class="primary-btn" type="submit">Save shipping address</button>
+        </div>
+      </form>
+
+      <div class="shipping-summary-box">
+        <p id="shippingSummaryText" class="order-meta">No shipping address saved yet.</p>
+      </div>
+    </div>
+
+    <div id="changePasswordCard" class="account-card hidden-box">
+      <h4>Change Password</h4>
+      <form id="changePasswordForm" class="admin-form">
+        <div class="form-grid">
+          <input id="currentPasswordInput" type="password" placeholder="Current password" />
+          <input id="newPasswordInput" type="password" placeholder="New password" />
+        </div>
+        <button class="primary-btn" type="submit">Save Password</button>
+      </form>
+    </div>
+
+    <div class="account-card">
+      <div class="card-head card-head-stack">
+        <div>
+          <h4>Wishlist</h4>
+          <p class="order-meta">Save items you want to watch again and add them to cart anytime.</p>
+        </div>
+      </div>
+      <div id="accountWishlistList"></div>
+    </div>
+
+    <div class="account-card">
+      <div class="card-head card-head-stack">
+        <div>
+          <h4>Notifications</h4>
+          <p class="order-meta">Updates from admin and automatic order notifications.</p>
+        </div>
+      </div>
+      <div id="accountNotificationsList"></div>
+    </div>
+
+    <div class="account-card">
+      <h4>My Orders</h4>
+      <div id="historyList"></div>
+    </div>
+  </aside>
+
+  <aside id="dashboardPanel" class="slide-panel">
+    <div class="panel-head">
+      <div>
+        <p class="section-label">Control center</p>
+        <h3>Admin Dashboard</h3>
+      </div>
+      <button class="ghost-btn" data-close-panel type="button">Close</button>
+    </div>
+
+    <div class="dashboard-tabs" id="dashboardTabs">
+      <button class="dashboard-tab-btn active" data-dashboard-tab="overview" type="button">Overview</button>
+      <button class="dashboard-tab-btn" data-dashboard-tab="users" type="button">Users</button>
+      <button class="dashboard-tab-btn" data-dashboard-tab="products" type="button">Products</button>
+      <button class="dashboard-tab-btn" data-dashboard-tab="orders" type="button">Orders</button>
+      <button class="dashboard-tab-btn" data-dashboard-tab="requests" type="button">Sourcing Requests</button>
+      <button class="dashboard-tab-btn" data-dashboard-tab="reports" type="button">Reports</button>
+      <button class="dashboard-tab-btn" data-dashboard-tab="notifications" type="button">Notifications</button>
+      <button class="dashboard-tab-btn" data-dashboard-tab="chats" type="button">Messages</button>
+      <button class="dashboard-tab-btn" data-dashboard-tab="hero" type="button">Hero Image</button>
+    </div>
+
+    <div class="dashboard-tab-content active" data-dashboard-content="overview">
+      <div class="stats-grid">
+        <div class="stat-card"><span>Total Users</span><strong id="dashboardTotalUsers">0</strong></div>
+        <div class="stat-card"><span>Total Admins</span><strong id="dashboardTotalAdmins">0</strong></div>
+        <div class="stat-card"><span>Monthly Accounts</span><strong id="dashboardMonthlyAccounts">0</strong></div>
+        <div class="stat-card"><span>Total Products</span><strong id="dashboardTotalProducts">0</strong></div>
+        <div class="stat-card"><span>Total Orders</span><strong id="dashboardTotalOrders">0</strong></div>
+        <div class="stat-card"><span>Blocked Users</span><strong id="dashboardBlockedUsers">0</strong></div>
+      </div>
+
+      <div class="dashboard-card">
+        <div class="card-head">
+          <h4>Monthly account growth</h4>
+        </div>
+        <div id="dashboardMonthlyChart" class="chart-wrap"></div>
+      </div>
+    </div>
+
+    <div class="dashboard-tab-content" data-dashboard-content="users">
+      <div class="dashboard-card">
+        <div class="card-head card-head-stack">
+          <div>
+            <h4>User Management</h4>
+            <p class="order-meta">Review customer profiles, account IDs, and order history. Owner access includes team permission management.</p>
+          </div>
+          <div class="dashboard-search-wrap">
+            <input id="dashboardUserSearchInput" type="text" placeholder="Search by name, email, phone, user ID, or role" />
+          </div>
+          <div class="inline-actions">
+            <input id="dashboardRoleEmailInput" type="email" placeholder="Customer email to promote" />
+            <button id="dashboardPromoteAdminBtn" class="primary-btn" type="button">Make Admin</button>
+          </div>
+        </div>
+        <div id="dashboardUsersList" class="dashboard-list"></div>
+      </div>
+    </div>
+
+    <div class="dashboard-tab-content" data-dashboard-content="products">
+      <div class="dashboard-card">
+        <div class="card-head">
+          <h4 id="dashboardProductFormTitle">Add product</h4>
+          <button id="dashboardCancelEditBtn" class="secondary-btn hidden-box" type="button">Cancel Edit</button>
+        </div>
+
+        <form id="dashboardProductForm" class="admin-form">
+          <input id="dashboardEditingProductId" type="hidden" />
+
+          <div class="form-grid">
+            <input id="dashboardProductName" type="text" placeholder="Product name" />
+            <input id="dashboardProductBrand" type="text" placeholder="Brand" />
+            <input id="dashboardProductType" type="text" placeholder="Type" />
+            <input id="dashboardProductCategory" type="text" placeholder="Category" />
+            <div class="product-catalog-picker form-field-wide">
+              <div class="product-catalog-picker-head">
+                <strong>Choose where this product goes</strong>
+                <small>Pick the main catalog first, then the subcatalog if there is one.</small>
+              </div>
+              <div class="product-catalog-picker-grid">
+                <div class="catalog-form-card">
+                  <label for="dashboardProductParentCatalog">Main catalog</label>
+                  <select id="dashboardProductParentCatalog"></select>
+                </div>
+                <div class="catalog-form-card">
+                  <label for="dashboardProductSubcatalog">Subcatalog</label>
+                  <select id="dashboardProductSubcatalog"></select>
+                  <small>Leave this on no subcatalog if the product should stay in the main catalog.</small>
+                </div>
+              </div>
+              <p id="dashboardProductCatalogPath" class="product-catalog-path">This product will be saved in: No catalog</p>
+              <select id="dashboardProductCatalog" class="hidden-field" aria-hidden="true" tabindex="-1"></select>
+            </div>
+            <input id="dashboardProductPrice" type="number" placeholder="Price" />
+            <input id="dashboardProductCostPrice" type="number" placeholder="Cost price" />
+            <input id="dashboardProductDiscountPrice" type="number" placeholder="Discount price" />
+            <input id="dashboardProductStock" type="number" placeholder="Stock" />
+            <input id="dashboardProductMaterial" type="text" placeholder="Material" />
+            <label class="catalog-form-card shipping-toggle-card"><input id="dashboardEnableAir" type="checkbox" checked /> Enable Air shipping</label>
+            <input id="dashboardAirPrice" type="number" placeholder="Air shipping price" />
+            <input id="dashboardAirNote" type="text" placeholder="Air shipping note" />
+            <label class="catalog-form-card shipping-toggle-card"><input id="dashboardEnableSea" type="checkbox" checked /> Enable Sea shipping</label>
+            <input id="dashboardSeaPrice" type="number" placeholder="Sea shipping price" />
+            <input id="dashboardSeaNote" type="text" placeholder="Sea shipping note" />
+            <select id="dashboardProductCountry">
+              <option value="China">China</option>
+              <option value="Turkey">Turkey</option>
+              <option value="UAE">UAE</option>
+            </select>
+            <select id="dashboardProductAudience">
+              <option value="">All</option>
+              <option value="Men">Men</option>
+              <option value="Women">Women</option>
+              <option value="Kids">Kids</option>
+            </select>
+            <input id="dashboardProductColors" type="text" placeholder="Colors: Black, White, Purple" />
+            <input id="dashboardProductSizes" type="text" placeholder="Sizes: S, M, L, XL" />
+            <select id="dashboardProductAccent">
+              <option value="purple">Purple</option>
+              <option value="blue">Blue</option>
+              <option value="gold">Gold</option>
+              <option value="green">Green</option>
+              <option value="pink">Pink</option>
+            </select>
+            <input id="dashboardProductImageFiles" type="file" accept="image/*" multiple />
+          </div>
+
+          <textarea id="dashboardProductDescription" rows="4" placeholder="Product description"></textarea>
+          <button class="primary-btn" type="submit">Save Product</button>
+        </form>
+      </div>
+
+      <div class="dashboard-card">
+        <div class="card-head card-head-stack">
+          <div>
+            <h4>Catalogs</h4>
+            <p class="order-meta">Admins can create collections and place each product inside a specific catalog.</p>
+          </div>
+        </div>
+        <form id="dashboardCatalogForm" class="admin-form catalog-admin-form">
+          <div class="catalog-admin-intro">
+            <strong>Create a catalog or subcatalog</strong>
+            <p class="order-meta">Write a catalog name, then choose a parent only if you want this new one to be inside another catalog.</p>
+          </div>
+          <div class="catalog-admin-grid">
+            <div class="catalog-form-card">
+              <label for="dashboardCatalogName">Catalog name</label>
+              <input id="dashboardCatalogName" type="text" placeholder="Example: Shoes" />
+              <small>Top-level example: Men</small>
+            </div>
+            <div class="catalog-form-card catalog-form-card-highlight">
+              <label for="dashboardCatalogParent">Parent catalog</label>
+              <select id="dashboardCatalogParent">
+                <option value="">No parent - create top level catalog</option>
+              </select>
+              <small>Choose a parent only when you want a subcatalog like Men / Shoes.</small>
+            </div>
+            <div class="catalog-form-action-wrap">
+              <button class="primary-btn catalog-create-btn" type="submit">Create Catalog</button>
+            </div>
+          </div>
+        </form>
+        <div class="catalog-help-box">
+          <strong>Example</strong>
+          <p class="order-meta">1. Create <b>Men</b> with no parent. 2. Create <b>Shoes</b> and choose parent <b>Men</b>. Result: <b>Men / Shoes</b>.</p>
+        </div>
+        <div id="dashboardCatalogList" class="dashboard-list"></div>
+      </div>
+
+      <div class="dashboard-card">
+        <div class="card-head">
+          <h4>Manage products</h4>
+        </div>
+        <div id="dashboardProductsList" class="dashboard-list"></div>
+      </div>
+    </div>
+
+    <div class="dashboard-tab-content" data-dashboard-content="orders">
+      <div class="dashboard-card">
+        <div class="card-head card-head-stack">
+          <div>
+            <h4>Orders management</h4>
+            <p class="order-meta">Filter orders by status, customer, and date.</p>
+          </div>
+          <div class="dashboard-filter-grid compact-grid">
+            <input id="dashboardOrderSearchInput" type="text" placeholder="Search order, customer, or email" />
+            <select id="dashboardOrderStatusFilter">
+              <option value="all">All statuses</option>
+              <option value="Confirming">Confirming</option>
+              <option value="Preparing">Preparing</option>
+              <option value="Delivering">Delivering</option>
+              <option value="Completed">Completed</option>
+              <option value="Cancelled">Cancelled</option>
+              <option value="Refunded">Refunded</option>
+            </select>
+          </div>
+        </div>
+        <div id="dashboardOrdersList" class="dashboard-list"></div>
+      </div>
+    </div>
+
+    <div class="dashboard-tab-content" data-dashboard-content="requests">
+      <div class="dashboard-card">
+        <div class="card-head card-head-stack">
+          <div>
+            <h4>External link request management</h4>
+            <p class="order-meta">Sort requests, update status, and quote faster.</p>
+          </div>
+          <div class="dashboard-filter-grid compact-grid">
+            <input id="dashboardRequestSearchInput" type="text" placeholder="Search customer, request ID, item" />
+            <select id="dashboardRequestStatusFilter">
+              <option value="all">All statuses</option>
+              <option value="pending">Pending</option>
+              <option value="quoted">Quoted</option>
+              <option value="accepted">Accepted</option>
+              <option value="declined">Declined</option>
+              <option value="ordered">Ordered</option>
+              <option value="shipped">Shipped</option>
+              <option value="completed">Completed</option>
+            </select>
+          </div>
+        </div>
+        <div id="dashboardLinkRequestsList" class="dashboard-list"></div>
+      </div>
+    </div>
+
+    <div class="dashboard-tab-content" data-dashboard-content="reports">
+      <div class="dashboard-card">
+        <div class="card-head">
+          <h4>Customer history</h4>
+        </div>
+        <div id="dashboardCustomerHistory" class="dashboard-list"></div>
+      </div>
+      <div class="dashboard-card">
+        <div class="card-head">
+          <h4>Sales and performance</h4>
+        </div>
+        <div id="dashboardReportsList" class="dashboard-list"></div>
+      </div>
+    </div>
+
+    <div class="dashboard-tab-content" data-dashboard-content="notifications">
+      <div class="dashboard-card">
+        <div class="card-head">
+          <h4>Broadcast notification</h4>
+        </div>
+        <form id="dashboardNotificationForm" class="admin-form">
+          <div class="form-grid">
+            <input id="dashboardNotificationTitle" type="text" placeholder="Notification title" />
+            <input id="dashboardNotificationMessage" type="text" placeholder="Message for all customers" />
+          </div>
+          <button class="primary-btn" type="submit">Send to all customers</button>
+        </form>
+      </div>
+      <div class="dashboard-card">
+        <div class="card-head">
+          <h4>Recent notifications</h4>
+        </div>
+        <div id="dashboardNotificationsLog" class="dashboard-list"></div>
+      </div>
+    </div>
+
+    <div class="dashboard-tab-content" data-dashboard-content="chats">
+      <div class="dashboard-card">
+        <div class="card-head card-head-stack">
+          <div>
+            <h4>Customer inquiries</h4>
+            <p class="order-meta">Review customer inquiries, referenced products, and conversation history.</p>
+          </div>
+        </div>
+        <div id="dashboardChatsList" class="dashboard-list"></div>
+      </div>
+    </div>
+
+    <div class="dashboard-tab-content" data-dashboard-content="hero">
+      <div class="dashboard-card">
+        <div class="card-head">
+          <h4>Manage Hero Section</h4>
+        </div>
+    
+        <form id="dashboardHeroContentForm" class="admin-form">
+          <div class="form-grid">
+            <input id="dashboardHeroTag" type="text" placeholder="Hero tag" />
+            <input id="dashboardHeroTitle" type="text" placeholder="Hero title" />
+          </div>
+    
+          <textarea id="dashboardHeroDescription" rows="4" placeholder="Hero description"></textarea>
+    
+          <div class="form-grid">
+            <input id="dashboardHeroCard1Label" type="text" placeholder="Right card 1 small text" />
+            <input id="dashboardHeroCard1Title" type="text" placeholder="Right card 1 title" />
+            <input id="dashboardHeroCard2Label" type="text" placeholder="Right card 2 small text" />
+            <input id="dashboardHeroCard2Title" type="text" placeholder="Right card 2 title" />
+            <input id="dashboardHeroCard3Label" type="text" placeholder="Right card 3 small text" />
+            <input id="dashboardHeroCard3Title" type="text" placeholder="Right card 3 title" />
+          </div>
+    
+          <div class="form-grid">
+            <input id="dashboardHeroImageInput" type="file" accept="image/*" />
+          </div>
+    
+          <div class="inline-actions">
+            <button class="primary-btn" type="submit">Save Hero Section</button>
+            <button id="dashboardRemoveHeroImageBtn" class="secondary-btn" type="button">Remove Right Image</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </aside>
+
+
+  <aside id="chatPanel" class="slide-panel chat-panel">
+    <div class="panel-head">
+      <div>
+        <p class="section-label">Customer messages</p>
+        <h3>Customer communication</h3>
+      </div>
+      <button class="ghost-btn" data-close-panel type="button">Close</button>
+    </div>
+
+    <div class="chat-layout">
+      <div class="chat-sidebar-box dashboard-card">
+        <div class="card-head">
+          <h4>Conversations</h4>
+        </div>
+        <div id="chatThreadList" class="chat-thread-list"></div>
+      </div>
+
+      <div class="chat-main-box dashboard-card">
+        <div id="chatEmptyState" class="chat-empty-state">
+          <p class="order-meta">Open a product and select <strong>Product Inquiry</strong> to begin a conversation.</p>
+        </div>
+
+        <div id="chatConversationBox" class="chat-conversation hidden-box">
+          <div id="chatThreadInfo" class="chat-thread-info"></div>
+          <div id="chatMessages" class="chat-messages"></div>
+
+          <form id="chatMessageForm" class="chat-message-form">
+            <textarea id="chatMessageInput" rows="3" placeholder="Write your message"></textarea>
+            <button class="primary-btn" type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+
+  <section id="productDetailsModal" class="product-page hidden-box">
+    <div class="product-page-shell">
+      <div class="product-page-topbar">
+        <button id="closeProductDetailsBtn" class="ghost-btn" type="button">Back to products</button>
+        <a href="#products" class="ghost-btn product-page-link">Catalog</a>
+      </div>
+
+      <div class="product-page-hero">
+        <div class="panel-head product-page-head">
+          <div>
+            <p class="section-label">Product details</p>
+            <h3 id="detailsModalTitle">Product</h3>
+            <p id="detailsModalMeta" class="results-text">Details and selection</p>
+          </div>
+        </div>
+
+        <div class="product-details-layout">
+          <div class="details-visual-box">
+            <div id="detailsMainVisual" class="details-main-visual"></div>
+            <div id="detailsThumbs" class="details-thumbs"></div>
+          </div>
+
+          <div class="details-content-box">
+            <div class="details-price-box">
+              <strong id="detailsPriceText" class="product-price"></strong>
+              <span id="detailsOldPriceText" class="product-old-price"></span>
+            </div>
+            <p id="detailsDescriptionText" class="product-description"></p>
+            <div id="detailsSpecs" class="details-specs-grid"></div>
+            <div class="details-picker-grid">
+              <div class="product-choice-group">
+                <div class="choice-head"><strong>Colors</strong><span id="detailsColorLabel"></span></div>
+                <div id="detailsColorOptions" class="product-color-options"></div>
+              </div>
+              <div class="product-choice-group">
+                <div class="choice-head"><strong>Sizes</strong><span id="detailsSizeLabel"></span></div>
+                <div id="detailsSizeOptions" class="product-size-options"></div>
+              </div>
+              <div class="product-choice-group shipping-method-group">
+                <div class="choice-head"><strong>Shipping</strong><span id="detailsShippingLabel"></span></div>
+                <div id="detailsShippingOptions" class="product-shipping-options"></div>
+                <p id="detailsShippingNote" class="shipping-method-note"></p>
+              </div>
+            </div>
+            <div id="detailsSelectionInfo" class="shipping-summary-box"></div>
+            <div class="inline-actions details-actions-row">
+              <button id="detailsWishlistBtn" class="secondary-btn" type="button">Add to wishlist</button>
+              <button id="detailsAddToCartBtn" class="secondary-btn" type="button">Add to cart</button>
+              <button id="detailsBuyNowBtn" class="primary-btn" type="button">Buy now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="account-card details-related-card">
+        <div class="card-head">
+          <div>
+            <h4>Related products</h4>
+            <p class="order-meta">Products from the same category or catalog.</p>
+          </div>
+        </div>
+        <div id="relatedProductsList" class="related-products-grid"></div>
+      </div>
+    </div>
+  </section>
+
+  <div id="authModal" class="modal hidden-box">
+    <div class="modal-card">
+      <div class="panel-head">
+        <div>
+          <p class="section-label">Authentication</p>
+          <h3 id="authTitle">Sign in</h3>
+          <p id="authHelper" class="results-text">Access your account to continue shopping.</p>
+        </div>
+        <button id="closeAuthBtn" class="ghost-btn" type="button">Close</button>
+      </div>
+
+      <div class="auth-tabs">
+        <button id="signInTab" class="auth-tab active" type="button">Sign in</button>
+        <button id="createAccountTab" class="auth-tab" type="button">Create account</button>
+      </div>
+
+      <form id="signInForm" class="admin-form">
+        <div class="form-grid">
+          <div id="nameField" class="hidden-field">
+            <input id="nameInput" type="text" placeholder="Full name" />
+          </div>
+          <div>
+            <input id="emailInput" type="email" placeholder="Email address" required />
+          </div>
+          <div id="phoneField" class="hidden-field">
+            <input id="phoneInput" type="text" placeholder="770 000 0000" />
+          </div>
+          <div>
+            <input id="passwordInput" type="password" placeholder="Password" required />
+          </div>
+        </div>
+        <button id="authSubmitBtn" class="primary-btn" type="submit">Sign in</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="imageZoomModal" class="image-zoom-modal hidden-box">
+    <button id="closeImageZoomBtn" class="ghost-btn image-zoom-close" type="button">Close</button>
+    <div class="image-zoom-shell">
+      <img id="imageZoomPreview" class="image-zoom-preview" alt="Zoomed product image" />
+    </div>
+  </div>
+
+  <div id="overlay" class="overlay"></div>
+
+  <script src="sora.js"></script>
+</body>
+</html>
